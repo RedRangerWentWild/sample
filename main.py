@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import logging
 from typing import Dict, Optional
 
-# Configure logging for professional touch
 logging.basicConfig(
     level=logging.INFO,
     format="%(levelname)s: %(message)s"
@@ -15,7 +14,7 @@ class BookScraper:
         self.soup: Optional[BeautifulSoup] = None
 
     def fetch_page(self) -> None:
-        """Fetches the webpage and parses it into BeautifulSoup."""
+     
         logging.info(f"Fetching data from {self.url} ...")
         try:
             response = requests.get(self.url, timeout=10)
@@ -27,7 +26,7 @@ class BookScraper:
             raise
 
     def scrape_book_info(self) -> Dict[str, str]:
-        """Extracts book information from the infobox if available."""
+       
         if not self.soup:
             raise ValueError("Soup object is empty. Did you run fetch_page()?")
 
@@ -59,7 +58,7 @@ class BookScraper:
 
 
 if __name__ == "__main__":
-    # Example Wikipedia page for a book
+
     url = "http://httpbin.org/get"
     scraper = BookScraper(url)
 
